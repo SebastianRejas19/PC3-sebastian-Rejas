@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pokemon"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="pokemon">{{pokemon.name_pokemon}}</ion-title>
+    <ion-buttons slot="end" *ngIf="pokemon">
+      <ion-button [routerLink]= "['/pokemon/edit', pokemon.pokemon_id]">Editar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title *ngIf="pokemon" size="large">{{pokemon.name_pokemon}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-grid *ngIf="pokemon">
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-center">
+            <img *ngIf="pokemon.url" src={{pokemon.url}}/>
+            <h1>
+              <b> {{pokemon.name_pokemon}}</b>
+            </h1>
+            <h1>
+              <b>Height:</b>
+              <p>{{pokemon.altura}}</p>
+            </h1>
+            <h1>
+              <b>Category:</b>
+              <p>{{pokemon.categoria}}</p>
+            </h1>
+            <h1>
+              <b>Weight:</b>
+              <p>{{pokemon.peso}}</p>
+            </h1>
+            <h1>
+              <b>Ability:</b>
+              <p>{{pokemon.habilidad}}</p>
+            </h1>
+            <h1>
+              <b>Type:</b>
+              <p>{{pokemon.tipo}}</p>
+            </h1>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="full" color="danger" [routerLink]="['/pokemons/delete', pokemon.pokemon_id]">Borrar</ion-button>
+        </ion-col>
+      </ion-row>
+
+      </ion-grid>
+  
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pokemon"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="pokemon" color="tertiary"> Borre un Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title color="tertiary" size="large">Quiere borrar un pokemon?</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>¿Estás seguro de que deseas eliminar al pokemon? {{pokemon_id}}?.</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>            
+      <ion-col>
+        <ion-button expand="full" color="dark" [routerLink]="['/pokemon/view', pokemon_id]" routerDirection="back">No</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" color="danger" (click)="deletePokemon(pokemon_id)">Yes</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

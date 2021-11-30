@@ -1,0 +1,33 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Pokemones</ion-title>
+    <ion-buttons slot ="end">
+      <ion-button routerLink="create">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let pokemon of pokemon" [routerLink]="['/pokemon/view', pokemon.pokemon_id]">
+      <ion-avatar slot="start">
+        <img src={{pokemon.url}}/>
+        </ion-avatar>
+      <ion-label>
+        <h1>{{pokemon.name_pokemon}}</h1>
+        <h2><b>category:</b>{{pokemon.categoria}}</h2>
+        <h3><i>Type:</i>{{pokemon.tipo}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+
+</ion-content>
